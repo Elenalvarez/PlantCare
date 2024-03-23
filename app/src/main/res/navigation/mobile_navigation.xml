@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/homeworkFragment">
+
+    <fragment
+        android:id="@+id/homeworkFragment"
+        android:name="com.yao.plantcare.homework.HomeworkFragment"
+        android:label="fragment_homework"
+        tools:layout="@layout/fragment_homework" />
+    <fragment
+        android:id="@+id/myPlantsFragment"
+        android:name="com.yao.plantcare.my_plants.MyPlantsFragment"
+        android:label="fragment_my_plants"
+        tools:layout="@layout/fragment_my_plants" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.yao.plantcare.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+</navigation>
