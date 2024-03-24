@@ -1,26 +1,22 @@
-package com.yao.plantcare.search
+package com.yao.plantcare.search.add_plant
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.yao.plantcare.databinding.FragmentSearchBinding
+import com.yao.plantcare.databinding.FragmentAddPlantBinding
 
-class SearchFragment : Fragment() {
-    private var _binding: FragmentSearchBinding? = null
+class AddPlantFragment : Fragment() {
+    private var _binding: FragmentAddPlantBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSearchBinding.inflate(inflater, container, false)
+        _binding = FragmentAddPlantBinding.inflate(inflater, container,false)
         val root = binding.root
-
-        binding.fabNewPlant.setOnClickListener {
-
-        }
 
         return root
     }
