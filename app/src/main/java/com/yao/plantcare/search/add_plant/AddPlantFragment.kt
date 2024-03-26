@@ -4,7 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.room.Room
+import com.yao.plantcare.database.Plant.PlantDatabase
+import com.yao.plantcare.database.Plant.PlantEntity
+import com.yao.plantcare.database.Plant.PlantRepository
+import com.yao.plantcare.database.Plant.PlantViewModel
 import com.yao.plantcare.databinding.FragmentAddPlantBinding
 
 class AddPlantFragment : Fragment() {
@@ -14,9 +20,36 @@ class AddPlantFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentAddPlantBinding.inflate(inflater, container,false)
+    ): View {
+        _binding = FragmentAddPlantBinding.inflate(inflater, container, false)
         val root = binding.root
+
+        val db =
+            activity?.let {
+                Room.databaseBuilder(it, PlantDatabase::class.java, "plant_db").build()
+            }
+        val plantDao = db?.plantDao()
+        val repository = plantDao?.let { PlantRepository(it) }
+        val viewModel = repository?.let { PlantViewModel(it) }
+
+        binding.btnAddPlant.setOnClickListener {
+            //como estos datos los voy a meter yo para rellenar la base de datos, no voy a comprobarlos
+            val commonName = binding.etCommonName.text.toString()
+            val specie = binding.etSpecie.text.toString()
+            val level = binding.etLevel.text.toString()
+            val temperature = binding.etTemperature.text.toString()
+            val sunLevel = binding.etSunLevel.text.toString()
+            val location = binding.etLocation.text.toString()
+            val irrigation = Integer.parseInt(binding.etIrrigation.text.toString())
+            val fertilize = Integer.parseInt(binding.etFertilize.text.toString())
+            val image = binding.etImage.text.toString()
+
+            val plant= PlantEntity(null,commonName,specie,level,temperature,sunLevel,location,irrigation, fertilize, image)
+            viewModel?.addPlant(plant)
+            Toast.makeText(requireContext(), "Añadido correctamente", Toast.LENGTH_LONG).show()
+        }
+
+        TODO("Hacer que la pantalla pueda bajar para rellenar los datos bien")
 
         return root
     }

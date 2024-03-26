@@ -1,6 +1,5 @@
 package com.yao.plantcare.database.Plant
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -15,7 +14,7 @@ data class PlantEntity(
     val location: String,
     val irrigation: Int,
     val fertilize: Int,
-    @ColumnInfo(typeAffinity = ColumnInfo.BLOB) val image: ByteArray
+    val image: String
 )
 
 
