@@ -9,5 +9,5 @@ data class Plant(
     val location: String,
     val irrigation: Int,
     val fertilize: Int,
-    val image: ByteArray
+    val image: String
 )

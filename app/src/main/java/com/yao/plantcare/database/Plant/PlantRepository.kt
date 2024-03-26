@@ -7,7 +7,8 @@ class PlantRepository(private val plantDao : PlantDao) {
     suspend fun getPlants(): List<Plant>{
         val entities = plantDao.getPlants()
         return entities.map {
-            Plant(commonName = it.commonName,
+            Plant(
+                commonName = it.commonName,
                 species = it.species,
                 level = it.level,
                 temperature = it.temperature,
@@ -19,7 +20,7 @@ class PlantRepository(private val plantDao : PlantDao) {
         }
     }
 
-    suspend fun insertPlant(plant: Plant){
+    suspend fun insertPlant(plant: PlantEntity){
         val entity = PlantEntity(
             commonName = plant.commonName,
             species = plant.species,
