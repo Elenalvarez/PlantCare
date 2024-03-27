@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".search.SearchFragment">
 
-    <TextView
-        android:id="@+id/text_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Probando Search" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_new_plant"
         android:layout_width="wrap_content"
@@ -23,5 +14,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:src="@drawable/ic_add"
         android:layout_margin="16dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

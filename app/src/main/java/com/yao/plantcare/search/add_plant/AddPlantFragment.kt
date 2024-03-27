@@ -49,8 +49,6 @@ class AddPlantFragment : Fragment() {
             Toast.makeText(requireContext(), "Añadido correctamente", Toast.LENGTH_LONG).show()
         }
 
-        TODO("Hacer que la pantalla pueda bajar para rellenar los datos bien")
-
         return root
     }
 
