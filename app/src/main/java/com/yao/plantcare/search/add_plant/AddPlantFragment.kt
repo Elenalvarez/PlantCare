@@ -26,7 +26,7 @@ class AddPlantFragment : Fragment() {
 
         val db =
             activity?.let {
-                Room.databaseBuilder(it, PlantDatabase::class.java, "plant_db").build()
+                Room.databaseBuilder(it, PlantDatabase::class.java, "plants_db").build()
             }
         val plantDao = db?.plantDao()
         val repository = plantDao?.let { PlantRepository(it) }
@@ -43,8 +43,9 @@ class AddPlantFragment : Fragment() {
             val irrigation = Integer.parseInt(binding.etIrrigation.text.toString())
             val fertilize = Integer.parseInt(binding.etFertilize.text.toString())
             val image = binding.etImage.text.toString()
+            val type = binding.etType.text.toString()
 
-            val plant= PlantEntity(null,commonName,specie,level,temperature,sunLevel,location,irrigation, fertilize, image)
+            val plant= PlantEntity(null,commonName,specie,level,temperature,sunLevel,location,irrigation, fertilize, image, type)
             viewModel?.addPlant(plant)
             Toast.makeText(requireContext(), "Añadido correctamente", Toast.LENGTH_LONG).show()
         }

@@ -99,6 +99,15 @@
                 android:textColorHint="@color/black"
                 />
 
+            <EditText
+                android:id="@+id/et_Type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="22dp"
+                android:hint="@string/type"
+                android:textColorHint="@color/black"
+                />
+
             <Button
                 android:id="@+id/btn_addPlant"
                 android:layout_width="wrap_content"
