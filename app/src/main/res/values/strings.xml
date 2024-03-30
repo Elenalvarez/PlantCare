@@ -21,4 +21,6 @@
     <string name="cactus">Cactus</string>
     <string name="vegetables">Hortalizas</string>
     <string name="species">Especias</string>
+    <string name="type">Tipo</string>
+    <string name="selection_plant">Seleccionar planta</string>
 </resources>
