@@ -9,4 +9,8 @@ class PlantRepository(private val plantDao : PlantDao) {
     suspend fun insertPlant(plant: PlantEntity){
         plantDao.insertPlant(plant)
     }
+
+    fun readCategoryData(category: String): LiveData<List<PlantEntity>>{
+        return plantDao.getPlantListInfoByType(category)
+    }
 }

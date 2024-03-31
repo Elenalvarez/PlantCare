@@ -14,4 +14,8 @@ class PlantViewModel(private val plantRepository: PlantRepository): ViewModel() 
             plantRepository.insertPlant(plant)
         }
     }
+
+    fun readCategoryData(category: String): LiveData<List<PlantEntity>>{
+        return plantRepository.readCategoryData(category)
+    }
 }
