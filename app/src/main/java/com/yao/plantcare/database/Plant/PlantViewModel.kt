@@ -18,4 +18,8 @@ class PlantViewModel(private val plantRepository: PlantRepository): ViewModel() 
     fun readCategoryData(category: String): LiveData<List<PlantEntity>>{
         return plantRepository.readCategoryData(category)
     }
+
+    fun readPlantByIde(id: Int): LiveData<PlantEntity>{
+        return plantRepository.readPlantById(id)
+    }
 }

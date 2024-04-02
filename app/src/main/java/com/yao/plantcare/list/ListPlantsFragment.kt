@@ -1,4 +1,4 @@
-package com.yao.plantcare.my_plants.list_plants
+package com.yao.plantcare.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,10 +9,12 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
+import com.yao.plantcare.R
 import com.yao.plantcare.database.Plant.PlantDatabase
 import com.yao.plantcare.database.Plant.PlantRepository
 import com.yao.plantcare.database.Plant.PlantViewModel
 import com.yao.plantcare.databinding.FragmentListPlantsBinding
+import com.yao.plantcare.records.PlantFragment
 
 class ListPlantsFragment : Fragment() {
     private  var _binding: FragmentListPlantsBinding? = null
@@ -42,4 +44,11 @@ class ListPlantsFragment : Fragment() {
 
         return root
     }
+
+    fun toPlantFragment(id: Int){
+        val fragment = PlantFragment(id)
+        val transaction = fragmentManager?.beginTransaction()
+        transaction?.replace(R.id.flFragment, fragment)?.commit()
+    }
+
 }

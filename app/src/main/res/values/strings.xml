@@ -23,4 +23,6 @@
     <string name="species">Especias</string>
     <string name="type">Tipo</string>
     <string name="selection_plant">Seleccionar planta</string>
+    <string name="last_irrigation">Último riego</string>
+    <string name="last_fertilize">Última fertilización</string>
 </resources>

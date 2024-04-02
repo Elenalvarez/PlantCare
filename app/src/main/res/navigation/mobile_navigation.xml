@@ -14,10 +14,80 @@
         android:id="@+id/myPlantsFragment"
         android:name="com.yao.plantcare.my_plants.MyPlantsFragment"
         android:label="fragment_my_plants"
-        tools:layout="@layout/fragment_my_plants" />
+        tools:layout="@layout/fragment_my_plants" >
+        <action
+            android:id="@+id/action_myPlantsFragment_to_listPlantsFragment"
+            app:destination="@id/listPlantsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.yao.plantcare.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_addPlantFragment"
+            app:destination="@id/addPlantFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_CategoryFragments"
+            app:destination="@id/CategoryFragments" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPlantFragment"
+        android:name="com.yao.plantcare.search.add_plant.AddPlantFragment"
+        android:label="fragment_add_plant"
+        tools:layout="@layout/fragment_add_plant" >
+        <action
+            android:id="@+id/action_addPlantFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <navigation android:id="@+id/CategoryFragments"
+        app:startDestination="@id/hortalizasFragment">
+        <fragment
+            android:id="@+id/hortalizasFragment"
+            android:name="com.yao.plantcare.search.category_fragments.HortalizasFragment"
+            android:label="fragment_hortalizas"
+            tools:layout="@layout/fragment_hortalizas" />
+        <fragment
+            android:id="@+id/cactusFragment2"
+            android:name="com.yao.plantcare.search.category_fragments.CactusFragment"
+            android:label="fragment_cactus"
+            tools:layout="@layout/fragment_cactus" />
+        <fragment
+            android:id="@+id/follajeFragment"
+            android:name="com.yao.plantcare.search.category_fragments.FollajeFragment"
+            android:label="fragment_follaje"
+            tools:layout="@layout/fragment_follaje" />
+        <fragment
+            android:id="@+id/floresFragment"
+            android:name="com.yao.plantcare.search.category_fragments.FloresFragment"
+            android:label="fragment_flores"
+            tools:layout="@layout/fragment_flores" />
+        <fragment
+            android:id="@+id/especiasFragment"
+            android:name="com.yao.plantcare.search.category_fragments.EspeciasFragment"
+            android:label="fragment_especias"
+            tools:layout="@layout/fragment_especias" />
+        <action
+            android:id="@+id/action_global_searchFragment"
+            app:destination="@id/searchFragment" />
+    </navigation>
+    <fragment
+        android:id="@+id/listPlantsFragment"
+        android:name="com.yao.plantcare.list.ListPlantsFragment"
+        android:label="fragment_list_plants"
+        tools:layout="@layout/fragment_list_plants" >
+        <action
+            android:id="@+id/action_listPlantsFragment_to_plantFragment"
+            app:destination="@id/plantFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/plantFragment"
+        android:name="com.yao.plantcare.records.PlantFragment"
+        android:label="fragment_plant"
+        tools:layout="@layout/fragment_plant" >
+        <argument
+            android:name="idPlant"
+            app:argType="integer"
+            android:defaultValue="1" />
+    </fragment>
 </navigation>

@@ -15,4 +15,6 @@ interface PlantDao {
     suspend fun insertPlant(plant: PlantEntity)
     @Query("SELECT * FROM plants WHERE type = :type")
     fun getPlantListInfoByType(type: String): LiveData<List<PlantEntity>>
+    @Query("SELECT * FROM plants WHERE id = :id")
+    fun getPlantById(id: Int): LiveData<PlantEntity>
 }

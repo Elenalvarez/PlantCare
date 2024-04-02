@@ -1,24 +1,26 @@
-package com.yao.plantcare.my_plants.list_plants
+package com.yao.plantcare.list
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.yao.plantcare.R
 import com.yao.plantcare.database.Plant.PlantEntity
 
-class ListPlantsAdapter: RecyclerView.Adapter<ListPlantsAdapter.MyViewHolder>() {
+class ListPlantsAdapter : RecyclerView.Adapter<ListPlantsAdapter.MyViewHolder>() {
 
     private var plantList = emptyList<PlantEntity>()
 
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val text_common_name: TextView
         val text_specie: TextView
         val image_level: ImageView
         val image_location: ImageView
         val image_list: ImageView
+        val custom_row: androidx.constraintlayout.widget.ConstraintLayout
 
         init {
             text_common_name = itemView.findViewById(R.id.text_common_name)
@@ -26,10 +28,14 @@ class ListPlantsAdapter: RecyclerView.Adapter<ListPlantsAdapter.MyViewHolder>() 
             image_level = itemView.findViewById(R.id.image_level)
             image_location = itemView.findViewById(R.id.image_location)
             image_list = itemView.findViewById(R.id.image_list)
+            custom_row = itemView.findViewById(R.id.custom_row)
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.custom_row, parent, false))
+        return MyViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.custom_row, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
@@ -38,14 +44,27 @@ class ListPlantsAdapter: RecyclerView.Adapter<ListPlantsAdapter.MyViewHolder>() 
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = plantList[position]
-        holder.text_common_name.text = currentItem.commonName.toString()
-        holder.text_specie.text = currentItem.species.toString()
-        val level_drawable: Int = getDrawable(currentItem.level.toString())
+        val level_drawable: Int = getDrawable(currentItem.level)
+        val location_drawable: Int = getDrawable(currentItem.location)
+        val image_drawable: Int = getDrawable(currentItem.image)
+
+        holder.text_common_name.text = currentItem.commonName
+        holder.text_specie.text = currentItem.species
         holder.image_level.setImageResource(level_drawable)
-        val location_drawable: Int = getDrawable(currentItem.location.toString())
         holder.image_location.setImageResource(location_drawable)
-        val image_drawable: Int = getDrawable(currentItem.image.toString())
         holder.image_list.setImageResource(image_drawable)
+
+        holder.custom_row.setOnClickListener {
+            //findNavController crashea la app
+            //holder.itemView.findNavController().navigate(
+            //    ListPlantsFragmentDirections.actionListPlantsFragmentToPlantFragment(currentItem.id!!)
+            //)
+            currentItem.id?.let { it1 ->
+                holder.itemView.findFragment<ListPlantsFragment>().toPlantFragment(
+                    it1
+                )
+            }
+        }
     }
 
     private fun getDrawable(param: String): Int {
@@ -66,7 +85,7 @@ class ListPlantsAdapter: RecyclerView.Adapter<ListPlantsAdapter.MyViewHolder>() 
         return d
     }
 
-    fun setData(plants: List<PlantEntity>){
+    fun setData(plants: List<PlantEntity>) {
         this.plantList = plants
         notifyDataSetChanged()
     }
