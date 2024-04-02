@@ -73,7 +73,7 @@
     </navigation>
     <fragment
         android:id="@+id/listPlantsFragment"
-        android:name="com.yao.plantcare.my_plants.list_plants.ListPlantsFragment"
+        android:name="com.yao.plantcare.list.ListPlantsFragment"
         android:label="fragment_list_plants"
         tools:layout="@layout/fragment_list_plants" >
         <action
@@ -82,7 +82,7 @@
     </fragment>
     <fragment
         android:id="@+id/plantFragment"
-        android:name="com.yao.plantcare.plants.PlantFragment"
+        android:name="com.yao.plantcare.records.PlantFragment"
         android:label="fragment_plant"
         tools:layout="@layout/fragment_plant" >
         <argument

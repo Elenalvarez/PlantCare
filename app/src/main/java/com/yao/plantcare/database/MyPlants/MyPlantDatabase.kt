@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [MyPlantEntity::class], version = 1)
+@Database(entities = [MyPlantEntity::class], version = 2)
 abstract class MyPlantDatabase: RoomDatabase() {
     
     abstract fun myPlantDao(): MyPlantDao
@@ -23,7 +23,7 @@ abstract class MyPlantDatabase: RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     MyPlantDatabase::class.java,
-                    "my_plant_database"
+                    "my_plant_database_2"
                 ).build()
                 MyPlantDatabase.INSTANCE = instance
                 return instance

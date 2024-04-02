@@ -1,4 +1,4 @@
-package com.yao.plantcare.my_plants.list_plants
+package com.yao.plantcare.list
 
 import android.view.LayoutInflater
 import android.view.View
@@ -44,12 +44,12 @@ class ListPlantsAdapter : RecyclerView.Adapter<ListPlantsAdapter.MyViewHolder>()
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = plantList[position]
-        val level_drawable: Int = getDrawable(currentItem.level.toString())
-        val location_drawable: Int = getDrawable(currentItem.location.toString())
-        val image_drawable: Int = getDrawable(currentItem.image.toString())
+        val level_drawable: Int = getDrawable(currentItem.level)
+        val location_drawable: Int = getDrawable(currentItem.location)
+        val image_drawable: Int = getDrawable(currentItem.image)
 
-        holder.text_common_name.text = currentItem.commonName.toString()
-        holder.text_specie.text = currentItem.species.toString()
+        holder.text_common_name.text = currentItem.commonName
+        holder.text_specie.text = currentItem.species
         holder.image_level.setImageResource(level_drawable)
         holder.image_location.setImageResource(location_drawable)
         holder.image_list.setImageResource(image_drawable)

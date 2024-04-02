@@ -13,7 +13,7 @@ import com.yao.plantcare.database.Plant.PlantDatabase
 import com.yao.plantcare.database.Plant.PlantRepository
 import com.yao.plantcare.database.Plant.PlantViewModel
 import com.yao.plantcare.databinding.FragmentFollajeBinding
-import com.yao.plantcare.my_plants.list_plants.ListPlantsAdapter
+import com.yao.plantcare.list.ListPlantsAdapter
 
 class FollajeFragment : Fragment() {
     private var _binding: FragmentFollajeBinding? = null

@@ -13,7 +13,7 @@ import com.yao.plantcare.database.Plant.PlantDatabase
 import com.yao.plantcare.database.Plant.PlantRepository
 import com.yao.plantcare.database.Plant.PlantViewModel
 import com.yao.plantcare.databinding.FragmentHortalizasBinding
-import com.yao.plantcare.my_plants.list_plants.ListPlantsAdapter
+import com.yao.plantcare.list.ListPlantsAdapter
 
 class HortalizasFragment : Fragment() {
     private var _binding: FragmentHortalizasBinding? = null

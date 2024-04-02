@@ -8,10 +8,12 @@ import androidx.room.Query
 
 @Dao
 interface MyPlantDao {
-    @Query("SELECT * FROM MyPlants")
+    @Query("SELECT * FROM My_Plants")
     fun readAllData(): LiveData<List<MyPlantEntity>>
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMyPlant(myPlant: MyPlantEntity)
-    @Query("SELECT * FROM myplants WHERE id = :id")
+    @Query("SELECT * FROM my_plants WHERE id = :id")
     fun getMyPlantById(id: Int): LiveData<MyPlantEntity>
+
 }
+

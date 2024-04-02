@@ -18,4 +18,8 @@ class MyPlantViewModel(private val myPlantRepository: MyPlantRepository): ViewMo
     fun readMyPlantById(id: Int): LiveData<MyPlantEntity>{
         return myPlantRepository.readMyPlantById(id)
     }
+
+    fun readAllCompleteData(): LiveData<List<MyPlantEntity>>{
+        return myPlantRepository.readAllData
+    }
 }

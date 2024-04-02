@@ -1,4 +1,4 @@
-package com.yao.plantcare.plants
+package com.yao.plantcare.records
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +12,8 @@ import com.yao.plantcare.database.Plant.PlantDatabase
 import com.yao.plantcare.database.Plant.PlantRepository
 import com.yao.plantcare.database.Plant.PlantViewModel
 import com.yao.plantcare.databinding.FragmentPlantBinding
-import com.yao.plantcare.my_plants.list_plants.ListPlantsFragment
+import com.yao.plantcare.list.ListPlantsFragment
+import com.yao.plantcare.my_plants.add_my_plant.AddMyPlantFragment
 
 class PlantFragment(arg: Int) : Fragment() {
     private var _binding: FragmentPlantBinding? = null
@@ -47,6 +48,12 @@ class PlantFragment(arg: Int) : Fragment() {
 
         binding.backToList.setOnClickListener {
             val fragment = ListPlantsFragment()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.flFragment, fragment)?.commit()
+        }
+
+        binding.btnAddMyPlant.setOnClickListener {
+            val fragment = AddMyPlantFragment(id)
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.flFragment, fragment)?.commit()
         }

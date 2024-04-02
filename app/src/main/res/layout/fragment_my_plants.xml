@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".my_plants.MyPlantsFragment">
 
-    <TextView
-        android:id="@+id/text_my_plants"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_selection_my_plant"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:gravity="center"
-        android:text="Probando My Plants" />
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="10dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add_my_plant"

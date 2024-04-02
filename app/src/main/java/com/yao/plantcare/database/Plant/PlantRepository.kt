@@ -17,4 +17,5 @@ class PlantRepository(private val plantDao : PlantDao) {
     fun readPlantById(id: Int): LiveData<PlantEntity>{
         return plantDao.getPlantById(id)
     }
+
 }
