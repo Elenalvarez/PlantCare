@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.room.Room
-import com.yao.plantcare.database.Plant.PlantDatabase
+import com.yao.plantcare.database.AllDatabase
+import com.yao.plantcare.database.AllRepository
+import com.yao.plantcare.database.AllViewModel
 import com.yao.plantcare.database.Plant.PlantEntity
-import com.yao.plantcare.database.Plant.PlantRepository
-import com.yao.plantcare.database.Plant.PlantViewModel
 import com.yao.plantcare.databinding.FragmentAddPlantBinding
 
 class AddPlantFragment : Fragment() {
@@ -24,13 +24,12 @@ class AddPlantFragment : Fragment() {
         _binding = FragmentAddPlantBinding.inflate(inflater, container, false)
         val root = binding.root
 
-        val db =
-            activity?.let {
-                Room.databaseBuilder(it, PlantDatabase::class.java, "plants_db").build()
-            }
-        val plantDao = db?.plantDao()
-        val repository = plantDao?.let { PlantRepository(it) }
-        val viewModel = repository?.let { PlantViewModel(it) }
+        val db = activity?.let {
+            Room.databaseBuilder(it, AllDatabase::class.java, "all_db").build()
+        }
+        val allDao = db?.AllDao()
+        val repository = allDao?.let { AllRepository(it) }
+        val viewModel = repository?.let { AllViewModel(it) }
 
         binding.btnAddPlant.setOnClickListener {
             //como estos datos los voy a meter yo para rellenar la base de datos, no voy a comprobarlos

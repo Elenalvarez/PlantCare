@@ -9,11 +9,13 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
-import com.yao.plantcare.database.Plant.PlantDatabase
-import com.yao.plantcare.database.Plant.PlantRepository
-import com.yao.plantcare.database.Plant.PlantViewModel
+import com.yao.plantcare.R
+import com.yao.plantcare.database.AllDatabase
+import com.yao.plantcare.database.AllRepository
+import com.yao.plantcare.database.AllViewModel
 import com.yao.plantcare.databinding.FragmentEspeciasBinding
-import com.yao.plantcare.list.ListPlantsAdapter
+import com.yao.plantcare.list.ListCategoryPlantsAdapter
+import com.yao.plantcare.records.PlantFragment
 
 class EspeciasFragment : Fragment() {
     private var _binding: FragmentEspeciasBinding? = null
@@ -26,13 +28,13 @@ class EspeciasFragment : Fragment() {
         val root = binding.root
 
         val db = activity?.let {
-            Room.databaseBuilder(it, PlantDatabase::class.java, "plants_db").build()
+            Room.databaseBuilder(it, AllDatabase::class.java, "all_db").build()
         }
-        val plantDao = db?.plantDao()
-        val repository = plantDao?.let { PlantRepository(it) }
-        val viewModel = repository?.let { PlantViewModel(it) }
+        val allDao = db?.AllDao()
+        val repository = allDao?.let { AllRepository(it) }
+        val viewModel = repository?.let { AllViewModel(it) }
 
-        val adapter = ListPlantsAdapter()
+        val adapter = ListCategoryPlantsAdapter()
         val recyclerView: RecyclerView = binding.rvSelectionPlant
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -42,5 +44,11 @@ class EspeciasFragment : Fragment() {
         })
 
         return root
+    }
+
+    fun toPlantFragment(id: Int){
+        val fragment = PlantFragment(id)
+        val transaction = fragmentManager?.beginTransaction()
+        transaction?.replace(R.id.flFragment, fragment)?.commit()
     }
 }

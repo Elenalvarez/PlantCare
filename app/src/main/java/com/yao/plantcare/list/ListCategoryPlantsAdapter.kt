@@ -9,12 +9,17 @@ import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.yao.plantcare.R
 import com.yao.plantcare.database.Plant.PlantEntity
+import com.yao.plantcare.search.category_fragments.CactusFragment
+import com.yao.plantcare.search.category_fragments.EspeciasFragment
+import com.yao.plantcare.search.category_fragments.FloresFragment
+import com.yao.plantcare.search.category_fragments.FollajeFragment
+import com.yao.plantcare.search.category_fragments.HortalizasFragment
 
-class ListPlantsAdapter : RecyclerView.Adapter<ListPlantsAdapter.MyViewHolder>() {
+class ListCategoryPlantsAdapter : RecyclerView.Adapter<ListCategoryPlantsAdapter.MyViewHolder>() {
 
     private var plantList = emptyList<PlantEntity>()
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val text_common_name: TextView
         val text_specie: TextView
         val image_level: ImageView
@@ -32,8 +37,8 @@ class ListPlantsAdapter : RecyclerView.Adapter<ListPlantsAdapter.MyViewHolder>()
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListCategoryPlantsAdapter.MyViewHolder {
+        return ListCategoryPlantsAdapter.MyViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.custom_row, parent, false)
         )
     }
@@ -55,15 +60,35 @@ class ListPlantsAdapter : RecyclerView.Adapter<ListPlantsAdapter.MyViewHolder>()
         holder.image_list.setImageResource(image_drawable)
 
         holder.custom_row.setOnClickListener {
-            //findNavController crashea la app
-            //holder.itemView.findNavController().navigate(
-            //    ListPlantsFragmentDirections.actionListPlantsFragmentToPlantFragment(currentItem.id!!)
-            //)
-            
-            currentItem.id?.let { it1 ->
-                holder.itemView.findFragment<ListPlantsFragment>().toPlantFragment(it1)
+            if (currentItem.type == "cactus") {
+                currentItem.id?.let { it1 ->
+                    holder.itemView.findFragment<CactusFragment>().toPlantFragment(it1)
+                }
             }
 
+            if (currentItem.type == "especias") {
+                currentItem.id?.let { it1 ->
+                    holder.itemView.findFragment<EspeciasFragment>().toPlantFragment(it1)
+                }
+            }
+
+            if (currentItem.type == "flores") {
+                currentItem.id?.let { it1 ->
+                    holder.itemView.findFragment<FloresFragment>().toPlantFragment(it1)
+                }
+            }
+
+            if (currentItem.type == "follaje") {
+                currentItem.id?.let { it1 ->
+                    holder.itemView.findFragment<FollajeFragment>().toPlantFragment(it1)
+                }
+            }
+
+            if (currentItem.type == "hortalizas") {
+                currentItem.id?.let { it1 ->
+                    holder.itemView.findFragment<HortalizasFragment>().toPlantFragment(it1)
+                }
+            }
 
         }
     }
@@ -90,6 +115,4 @@ class ListPlantsAdapter : RecyclerView.Adapter<ListPlantsAdapter.MyViewHolder>()
         this.plantList = plants
         notifyDataSetChanged()
     }
-
-
 }

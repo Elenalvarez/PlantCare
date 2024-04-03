@@ -14,6 +14,5 @@ interface MyPlantDao {
     suspend fun insertMyPlant(myPlant: MyPlantEntity)
     @Query("SELECT * FROM my_plants WHERE id = :id")
     fun getMyPlantById(id: Int): LiveData<MyPlantEntity>
-
 }
 
