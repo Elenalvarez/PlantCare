@@ -25,4 +25,6 @@
     <string name="selection_plant">Seleccionar planta</string>
     <string name="last_irrigation">Último riego</string>
     <string name="last_fertilize">Última fertilización</string>
+    <string name="next_irrigation">Próximo riego</string>
+    <string name="next_fertilize">Próxima fertilización</string>
 </resources>

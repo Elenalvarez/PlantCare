@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.yao.plantcare.R
-import com.yao.plantcare.database.MyPlants.MyPlantDatabase
-import com.yao.plantcare.database.MyPlants.MyPlantRepository
-import com.yao.plantcare.database.MyPlants.MyPlantViewModel
+import com.yao.plantcare.database.AllDatabase
+import com.yao.plantcare.database.AllRepository
+import com.yao.plantcare.database.AllViewModel
 import com.yao.plantcare.databinding.FragmentMyPlantsBinding
 import com.yao.plantcare.list.ListMyPlantsAdapter
 import com.yao.plantcare.list.ListPlantsFragment
@@ -29,19 +29,18 @@ class MyPlantsFragment : Fragment() {
         val root = binding.root
 
         val db = activity?.let {
-            Room.databaseBuilder(it, MyPlantDatabase::class.java, "my_plants_db_2").build()
+            Room.databaseBuilder(it, AllDatabase::class.java, "all_db").build()
         }
-
-        val myPlantDao = db?.myPlantDao()
-        val myPlantRepository = myPlantDao?.let { MyPlantRepository(it) }
-        val MyPlantViewModel = myPlantRepository?.let { MyPlantViewModel(it) }
+        val allDao = db?.AllDao()
+        val repository = allDao?.let { AllRepository(it) }
+        val viewModel = repository?.let { AllViewModel(it) }
 
         val adapter = ListMyPlantsAdapter()
         val recyclerView: RecyclerView = binding.rvSelectionMyPlant
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        MyPlantViewModel?.readAllCompleteData()?.observe(viewLifecycleOwner, Observer {plant ->
+        viewModel?.getMyPlants?.observe(viewLifecycleOwner, Observer {plant ->
             adapter.setData(plant)
         })
 

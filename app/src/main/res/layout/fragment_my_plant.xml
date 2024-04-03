@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_app"
+    tools:context=".records.PlantFragment">
+
+    <ImageView
+        android:id="@+id/my_plant_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/flor1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/back_to_my_plants"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="center"
+        app:tint="@color/background_app"/>
+
+    <TextView
+        android:id="@+id/my_plant_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/common_name"
+        android:textColor="@color/background_component"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/my_plant_image" />
+
+    <TextView
+        android:id="@+id/text_last_irrigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_irrigation"
+        app:layout_constraintTop_toBottomOf="@id/my_plant_name"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/background_component"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/my_plant_next_irrigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6"
+        app:layout_constraintTop_toBottomOf="@+id/my_plant_name"
+        app:layout_constraintStart_toEndOf="@id/text_last_irrigation"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/background_component"/>
+
+    <TextView
+        android:id="@+id/text_last_fertilize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_fertilize"
+        app:layout_constraintTop_toBottomOf="@id/my_plant_next_irrigation"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/background_component"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/my_plant_next_fertilize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="21"
+        app:layout_constraintTop_toBottomOf="@+id/my_plant_next_irrigation"
+        app:layout_constraintStart_toEndOf="@id/text_last_fertilize"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/background_component"/>
+
+    <TextView
+        android:id="@+id/text_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temperature"
+        app:layout_constraintTop_toBottomOf="@id/my_plant_next_fertilize"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/background_component"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/my_plant_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="21ºC"
+        app:layout_constraintTop_toBottomOf="@+id/my_plant_next_fertilize"
+        app:layout_constraintStart_toEndOf="@id/text_temperature"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/background_component"/>
+
+    <TextView
+        android:id="@+id/text_sun_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sunLevel"
+        app:layout_constraintTop_toBottomOf="@id/my_plant_temperature"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/background_component"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/my_plant_sun_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medio"
+        app:layout_constraintTop_toBottomOf="@+id/my_plant_temperature"
+        app:layout_constraintStart_toEndOf="@id/text_sun_level"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/background_component"/>
+
+    <TextView
+        android:id="@+id/text_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location"
+        app:layout_constraintTop_toBottomOf="@id/my_plant_sun_level"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/background_component"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/my_plant_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exterior"
+        app:layout_constraintTop_toBottomOf="@+id/my_plant_sun_level"
+        app:layout_constraintStart_toEndOf="@id/text_location"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/background_component"/>
+
+    <TextView
+        android:id="@+id/text_irrigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/irrigation"
+        app:layout_constraintTop_toBottomOf="@id/my_plant_location"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/background_component"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/my_plant_irrigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6"
+        app:layout_constraintTop_toBottomOf="@+id/my_plant_location"
+        app:layout_constraintStart_toEndOf="@id/text_irrigation"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/background_component"/>
+
+    <TextView
+        android:id="@+id/text_fertilize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fertilize"
+        app:layout_constraintTop_toBottomOf="@id/my_plant_irrigation"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/background_component"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/my_plant_fertilize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22"
+        app:layout_constraintTop_toBottomOf="@+id/my_plant_irrigation"
+        app:layout_constraintStart_toEndOf="@id/text_fertilize"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/background_component"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
