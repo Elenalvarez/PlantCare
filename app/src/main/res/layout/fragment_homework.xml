@@ -4,15 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".homework.HomeworkFragment">
+    android:padding="24dp"
+    tools:context=".homework.HomeworkFragment"
+    android:background="@color/background_app">
 
     <TextView
         android:id="@+id/text_homework"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Probando Homework" />
+        android:text="@string/homework"
+        android:textColor="@color/background_component"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:paddingVertical="10dp"/>
+
+    <TextView
+        android:id="@+id/text_irrigation_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/text_homework"
+        android:text="@string/irrigation"
+        android:textColor="@color/background_component"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        android:layout_marginVertical="5dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_selection_irrigation_task"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_irrigation_task"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <TextView
+        android:id="@+id/text_fertilize_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/rv_selection_irrigation_task"
+        android:text="@string/fertilize"
+        android:textColor="@color/background_component"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        android:layout_marginVertical="5dp"
+        android:layout_marginHorizontal="10dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_fertilize_selection_task"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_fertilize_task"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

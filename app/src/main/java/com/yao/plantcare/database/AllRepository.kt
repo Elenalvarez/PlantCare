@@ -29,4 +29,12 @@ class AllRepository(private val allDao: AllDao) {
     fun readMyPlantById(id: Int): LiveData<AllPlantEntity>{
         return allDao.getMyPlantById(id)
     }
+
+    fun readIrrigationMyPlant(): LiveData<List<MyPlantEntity>>{
+        return allDao.getIrrigationMyPlant()
+    }
+
+    fun readFertilizeMyPlant(): LiveData<List<MyPlantEntity>>{
+        return allDao.getFertilizeMyPlant()
+    }
 }
