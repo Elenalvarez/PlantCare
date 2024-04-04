@@ -16,6 +16,7 @@ import com.yao.plantcare.database.AllViewModel
 import com.yao.plantcare.databinding.FragmentMyPlantsBinding
 import com.yao.plantcare.list.ListMyPlantsAdapter
 import com.yao.plantcare.list.ListPlantsFragment
+import com.yao.plantcare.records.MyPlantFragment
 
 class MyPlantsFragment : Fragment() {
     private var _binding: FragmentMyPlantsBinding? = null
@@ -51,6 +52,12 @@ class MyPlantsFragment : Fragment() {
         }
 
         return root
+    }
+
+    fun toPlantFragment(idPlant: Int, idMyPlant: Int){
+        val fragment = MyPlantFragment(idPlant, idMyPlant)
+        val transaction = fragmentManager?.beginTransaction()
+        transaction?.replace(R.id.flFragment, fragment)?.commit()
     }
 
 }
