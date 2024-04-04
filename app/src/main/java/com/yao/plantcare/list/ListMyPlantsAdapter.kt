@@ -5,9 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.yao.plantcare.R
 import com.yao.plantcare.database.MyPlants.MyPlantEntity
+import com.yao.plantcare.my_plants.MyPlantsFragment
 
 class ListMyPlantsAdapter : RecyclerView.Adapter<ListMyPlantsAdapter.MyViewHolder>() {
 
@@ -53,6 +55,14 @@ class ListMyPlantsAdapter : RecyclerView.Adapter<ListMyPlantsAdapter.MyViewHolde
         holder.text_fer.text = buildString {
             append("Fertilizado hace: ")
             append(currentItem.lastFertilize)
+        }
+
+        holder.row.setOnClickListener {
+            currentItem.id?.let { it1 ->
+                holder.itemView.findFragment<MyPlantsFragment>().toPlantFragment(currentItem.plantId,
+                    it1
+                )
+            }
         }
     }
 
