@@ -48,7 +48,6 @@ class MyPlantFragment(arg1: Int, arg2: Int) : Fragment() {
             binding.myPlantName.text = myPlant[0].name
             val nextIrr: Int = it.plant.irrigation - myPlant[0].lastIrrigation
             val nextFer: Int = it.plant.fertilize - myPlant[0].lastFertilize
-            // TODO: AÑADIR TAREA CUANDO SEA HORA DE REGAR O FERTILIZAR
             binding.myPlantNextIrrigation.text = nextIrr.toString()
             binding.myPlantNextFertilize.text = nextFer.toString()
         })

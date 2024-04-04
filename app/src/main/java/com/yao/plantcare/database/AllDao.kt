@@ -36,4 +36,10 @@ interface AllDao {
 
     @Query("SELECT * FROM plants WHERE plants.id = :id")
     fun getMyPlantById(id: Int): LiveData<AllPlantEntity>
+
+    @Query("SELECT my_plants.id, plantId, name, lastIrrigation, lastFertilize, my_plants.image FROM my_plants, plants WHERE lastIrrigation >= irrigation AND my_plants.plantId == plants.id")
+    fun getIrrigationMyPlant(): LiveData<List<MyPlantEntity>>
+
+    @Query("SELECT my_plants.id, plantId, name, lastIrrigation, lastFertilize, my_plants.image FROM my_plants, plants WHERE lastFertilize >= fertilize AND my_plants.plantId == plants.id")
+    fun getFertilizeMyPlant(): LiveData<List<MyPlantEntity>>
 }

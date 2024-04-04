@@ -37,4 +37,12 @@ class AllViewModel(private val allRepository: AllRepository): ViewModel() {
     fun readMyPlantById(id: Int): LiveData<AllPlantEntity>{
         return allRepository.readMyPlantById(id)
     }
+
+    fun readIrrigationMyPlant(): LiveData<List<MyPlantEntity>>{
+        return allRepository.readIrrigationMyPlant()
+    }
+
+    fun readFertilizeMyPlant(): LiveData<List<MyPlantEntity>>{
+        return allRepository.readFertilizeMyPlant()
+    }
 }
