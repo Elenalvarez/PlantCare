@@ -171,7 +171,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/background_app"
                 android:maxLines="1"
-                android:text="@string/species"
+                android:text="@string/spices"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 app:layout_constraintStart_toStartOf="@+id/image_species"
                 app:layout_constraintEnd_toEndOf="@+id/image_species"
