@@ -55,4 +55,26 @@ class HomeworkFragment : Fragment() {
         return root
     }
 
+    fun updateIrrigation(idPlant: Int){
+        val db = activity?.let {
+            Room.databaseBuilder(it, AllDatabase::class.java, "all_db").build()
+        }
+        val allDao = db?.AllDao()
+        val repository = allDao?.let { AllRepository(it) }
+        val viewModel = repository?.let { AllViewModel(it) }
+
+        viewModel?.updateIrrigation(idPlant)
+    }
+
+    fun updateFertilize(idPlant: Int){
+        val db = activity?.let {
+            Room.databaseBuilder(it, AllDatabase::class.java, "all_db").build()
+        }
+        val allDao = db?.AllDao()
+        val repository = allDao?.let { AllRepository(it) }
+        val viewModel = repository?.let { AllViewModel(it) }
+
+        viewModel?.updateFertilize(idPlant)
+    }
+
 }

@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.room.Room
+import com.yao.plantcare.R
 import com.yao.plantcare.database.AllDatabase
 import com.yao.plantcare.database.AllRepository
 import com.yao.plantcare.database.AllViewModel
 import com.yao.plantcare.database.MyPlants.MyPlantEntity
 import com.yao.plantcare.databinding.FragmentAddMyPlantBinding
+import com.yao.plantcare.my_plants.MyPlantsFragment
 
 class AddMyPlantFragment(arg: Int) : Fragment() {
     private var _binding: FragmentAddMyPlantBinding? = null
@@ -40,6 +42,10 @@ class AddMyPlantFragment(arg: Int) : Fragment() {
             val myPlant = MyPlantEntity(null, idPlant, name, last_irrigation, last_fertilize, img)
             viewModel?.addMyPlant(myPlant)
             Toast.makeText(requireContext(), "Añadido correctamente", Toast.LENGTH_LONG).show()
+
+            val fragment = MyPlantsFragment()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.flFragment, fragment)?.commit()
         }
 
         return root

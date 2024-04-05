@@ -5,9 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.yao.plantcare.R
 import com.yao.plantcare.database.MyPlants.MyPlantEntity
+import com.yao.plantcare.homework.HomeworkFragment
 
 class ListFertilizeTaskAdapter : RecyclerView.Adapter<ListFertilizeTaskAdapter.MyViewHolder>() {
 
@@ -46,7 +48,9 @@ class ListFertilizeTaskAdapter : RecyclerView.Adapter<ListFertilizeTaskAdapter.M
         holder.text_task.text = "Fertilizar"
 
         holder.task_row.getViewById(R.id.btn_task).setOnClickListener {
-            // TODO: update de las tareas
+            currentItem.id?.let { it ->
+                holder.itemView.findFragment<HomeworkFragment>().updateFertilize(it)
+            }
         }
     }
 

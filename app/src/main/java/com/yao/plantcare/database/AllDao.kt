@@ -2,6 +2,7 @@ package com.yao.plantcare.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -35,11 +36,25 @@ interface AllDao {
     fun getPlantById(id: Int): LiveData<PlantEntity>
 
     @Query("SELECT * FROM plants WHERE plants.id = :id")
-    fun getMyPlantById(id: Int): LiveData<AllPlantEntity>
+    fun getAllMyPlantById(id: Int): LiveData<AllPlantEntity>
 
-    @Query("SELECT my_plants.id, plantId, name, lastIrrigation, lastFertilize, my_plants.image FROM my_plants, plants WHERE lastIrrigation >= irrigation AND my_plants.plantId == plants.id")
+    @Query("SELECT my_plants.id, plantId, name, lastIrrigation, lastFertilize, my_plants.image"+
+            " FROM my_plants, plants WHERE lastIrrigation >= irrigation AND my_plants.plantId == plants.id")
     fun getIrrigationMyPlant(): LiveData<List<MyPlantEntity>>
 
-    @Query("SELECT my_plants.id, plantId, name, lastIrrigation, lastFertilize, my_plants.image FROM my_plants, plants WHERE lastFertilize >= fertilize AND my_plants.plantId == plants.id")
+    @Query("SELECT my_plants.id, plantId, name, lastIrrigation, lastFertilize, my_plants.image"+
+            " FROM my_plants, plants WHERE lastFertilize >= fertilize AND my_plants.plantId == plants.id")
     fun getFertilizeMyPlant(): LiveData<List<MyPlantEntity>>
+
+    @Query("SELECT * FROM my_plants WHERE id = :id")
+    fun getMyPlantById(id: Int): LiveData<MyPlantEntity>
+
+    @Delete
+    fun deleteMyPlant(myPlant: MyPlantEntity)
+
+    @Query("UPDATE my_plants SET lastIrrigation = 0 WHERE id = :id")
+    fun updateIrrigation(id: Int)
+
+    @Query("UPDATE my_plants SET lastFertilize = 0 WHERE id = :id")
+    fun updateFertilize(id: Int)
 }

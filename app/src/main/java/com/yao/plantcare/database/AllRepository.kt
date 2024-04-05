@@ -27,7 +27,7 @@ class AllRepository(private val allDao: AllDao) {
     }
 
     fun readMyPlantById(id: Int): LiveData<AllPlantEntity>{
-        return allDao.getMyPlantById(id)
+        return allDao.getAllMyPlantById(id)
     }
 
     fun readIrrigationMyPlant(): LiveData<List<MyPlantEntity>>{
@@ -36,5 +36,21 @@ class AllRepository(private val allDao: AllDao) {
 
     fun readFertilizeMyPlant(): LiveData<List<MyPlantEntity>>{
         return allDao.getFertilizeMyPlant()
+    }
+
+    fun getMyPlantById(id: Int): LiveData<MyPlantEntity>{
+        return allDao.getMyPlantById(id)
+    }
+
+    fun deleteMyPlant(myPlant: MyPlantEntity){
+        allDao.deleteMyPlant(myPlant)
+    }
+
+    fun updateIrrigation(id: Int){
+        allDao.updateIrrigation(id)
+    }
+
+    fun updateFertilize(id: Int){
+        allDao.updateFertilize(id)
     }
 }

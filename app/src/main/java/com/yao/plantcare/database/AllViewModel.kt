@@ -45,4 +45,26 @@ class AllViewModel(private val allRepository: AllRepository): ViewModel() {
     fun readFertilizeMyPlant(): LiveData<List<MyPlantEntity>>{
         return allRepository.readFertilizeMyPlant()
     }
+
+    fun getMyPlantById(id: Int): LiveData<MyPlantEntity>{
+        return allRepository.getMyPlantById(id)
+    }
+
+    fun deleteMyPlant(myPlant: MyPlantEntity){
+        viewModelScope.launch(Dispatchers.IO) {
+            allRepository.deleteMyPlant(myPlant)
+        }
+    }
+
+    fun updateIrrigation(id: Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            allRepository.updateIrrigation(id)
+        }
+    }
+
+    fun updateFertilize(id: Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            allRepository.updateFertilize(id)
+        }
+    }
 }
