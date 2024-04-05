@@ -58,6 +58,16 @@ class MyPlantFragment(arg1: Int, arg2: Int) : Fragment() {
             transaction?.replace(R.id.flFragment, fragment)?.commit()
         }
 
+        binding.btnDeleteMyPlant.setOnClickListener {
+            viewModel?.getMyPlantById(idMyPlant)?.observe(viewLifecycleOwner, Observer {
+                viewModel.deleteMyPlant(it)
+                val fragment = MyPlantsFragment()
+                val transaction = fragmentManager?.beginTransaction()
+                transaction?.replace(R.id.flFragment, fragment)?.commit()
+            })
+
+        }
+
         return root
     }
 
