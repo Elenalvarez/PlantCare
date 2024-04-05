@@ -10,7 +10,7 @@
         android:id="@+id/text_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/species"
+        android:text="@string/spices"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"

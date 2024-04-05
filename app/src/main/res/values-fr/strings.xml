@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="homework">Tâches</string>
+    <string name="my_plants">Mes plantes</string>
+    <string name="search">Chercher</string>
+    <string name="common_name">Nom comun</string>
+    <string name="specie">Espèces</string>
+    <string name="level">Niveau</string>
+    <string name="temperature">Température</string>
+    <string name="sunLevel">Niveau du soleil</string>
+    <string name="location">Emplacement</string>
+    <string name="irrigation">Irrigation</string>
+    <string name="fertilize">Engrais</string>
+    <string name="image">Image</string>
+    <string name="add">Ajouter</string>
+    <string name="search_plant">Chercher plantes</string>
+    <string name="flowers">Fleur</string>
+    <string name="foliage">Feuillage</string>
+    <string name="cactus">Cactus</string>
+    <string name="vegetables">Légumes</string>
+    <string name="spices">Épices</string>
+    <string name="type">Type</string>
+    <string name="selection_plant">Sélectionner plante</string>
+    <string name="last_irrigation">Dernier arrosage</string>
+    <string name="last_fertilize">Dernier fécondation</string>
+    <string name="next_irrigation">Suivant arrosage</string>
+    <string name="next_fertilize">Suivant fécondation</string>
+    <string name="done">Fait</string>
+    <string name="delete">Supprimer</string>
+    <string name="select_language">Choisir la langue:</string>
+    <string name="spanish">Espagnol</string>
+    <string name="english">Anglais</string>
+    <string name="french">Français</string>
+    <string name="ok">Accepter</string>
+</resources>

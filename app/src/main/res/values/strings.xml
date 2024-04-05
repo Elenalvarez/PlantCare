@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">PlantCare</string>
+    <string name="app_name" translatable="false">PlantCare</string>
     <string name="homework">Tareas</string>
     <string name="my_plants">Mis plantas</string>
     <string name="search">Buscar</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="common_name">Nombre</string>
+    <string name="common_name">Nombre común</string>
     <string name="specie">Especie</string>
     <string name="level">Nivel</string>
     <string name="temperature">Temperatura</string>
@@ -19,7 +19,7 @@
     <string name="foliage">Follaje</string>
     <string name="cactus">Cactus</string>
     <string name="vegetables">Hortalizas</string>
-    <string name="species">Especias</string>
+    <string name="spices">Especias</string>
     <string name="type">Tipo</string>
     <string name="selection_plant">Seleccionar planta</string>
     <string name="last_irrigation">Último riego</string>
@@ -27,7 +27,12 @@
     <string name="next_irrigation">Próximo riego</string>
     <string name="next_fertilize">Próxima fertilización</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="done">Hecho</string>
     <string name="delete">Borrar</string>
+    <string name="select_language">Selecciona el idioma:</string>
+    <string name="spanish">Español</string>
+    <string name="english">Inglés</string>
+    <string name="french">Francés</string>
+    <string name="ok">Aceptar</string>
 </resources>
