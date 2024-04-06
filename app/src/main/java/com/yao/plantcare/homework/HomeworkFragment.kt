@@ -62,8 +62,14 @@ class HomeworkFragment : Fragment() {
         val allDao = db?.AllDao()
         val repository = allDao?.let { AllRepository(it) }
         val viewModel = repository?.let { AllViewModel(it) }
+        val adapterIrrigation = ListIrrigationTaskAdapter()
+        val recyclerViewIrrigation: RecyclerView = binding.rvSelectionIrrigationTask
+        recyclerViewIrrigation.adapter = adapterIrrigation
 
         viewModel?.updateIrrigation(idPlant)
+        viewModel?.readIrrigationMyPlant()?.observe(viewLifecycleOwner, Observer { plant ->
+            adapterIrrigation.setData(plant)
+        })
     }
 
     fun updateFertilize(idPlant: Int){
@@ -73,8 +79,15 @@ class HomeworkFragment : Fragment() {
         val allDao = db?.AllDao()
         val repository = allDao?.let { AllRepository(it) }
         val viewModel = repository?.let { AllViewModel(it) }
+        val adapterFertilize = ListFertilizeTaskAdapter()
+        val recyclerViewFertilize: RecyclerView = binding.rvFertilizeSelectionTask
+        recyclerViewFertilize.adapter = adapterFertilize
+        recyclerViewFertilize.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel?.updateFertilize(idPlant)
+        viewModel?.readFertilizeMyPlant()?.observe(viewLifecycleOwner, Observer { plant ->
+            adapterFertilize.setData(plant)
+        })
     }
 
 }

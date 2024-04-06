@@ -19,7 +19,10 @@ class ChangeLanguage(private val context: Context) {
 
         if (preferences!!.contains("language")){
             currentLanguage = preferences!!.getString("language", "Spanish")!!
-            if (currentLanguage=="Spanish"){}
+            if (currentLanguage=="Spanish"){
+                language = "Spanish"
+                languageCode = "es"
+            }
             else if (currentLanguage == "English"){
                 language = "English"
                 languageCode= "en"
